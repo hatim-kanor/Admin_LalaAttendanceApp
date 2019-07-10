@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    android:layout_height="match_parent"
+    tools:context=".AdminHome"
+    >
+    <TextView
+        android:id="@+id/view_profile"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:text="View Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_admin"
+        android:layout_below="@id/view_profile"
+        android:background="@drawable/bg_btn_admin"
+        android:text="Admin "
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btn_admin"
+        android:id="@+id/btn_stream"
+        android:text="Stream "
+        android:background="@drawable/bg_btn_admin"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btn_stream"
+        android:id="@+id/btn_google"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/bg_btn_admin"
+        android:layout_marginRight="15dp"
+        android:text="Online Form / Sheet "
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btn_google"
+        android:id="@+id/btn_staff"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/bg_btn_admin"
+        android:layout_marginRight="15dp"
+        android:text="STAFF "
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

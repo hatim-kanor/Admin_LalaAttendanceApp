@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+    <TextView
+        android:id="@+id/profile"
+        android:text="PROFILE"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_name"
+        android:text="Name: "
+        android:textSize="20dp"
+        android:layout_marginLeft="0dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/name"
+        android:layout_toRightOf="@id/tv_name"
+        android:textSize="20dp"
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tv_name"
+        android:id="@+id/tv_mobile"
+        android:text="Mobile: "
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/mobile"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@id/tv_mobile"
+        android:textSize="20dp"
+        android:text="Mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ProgressBar
+        android:id="@+id/progress_Bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tv_mobile"
+        android:id="@+id/tv_email"
+        android:text="Email: "
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/email"
+        android:layout_below="@id/mobile"
+        android:layout_toRightOf="@id/tv_email"
+        android:textSize="20dp"
+        android:text="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tv_email"
+        android:id="@+id/tv_imei"
+        android:text="Imei: "
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/imei"
+        android:layout_below="@id/email"
+        android:layout_toRightOf="@id/tv_imei"
+        android:textSize="20dp"
+        android:text="Imei"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_Update"
+        android:text="Update"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/imei"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_Back"
+        android:text="Back"
+        android:drawableLeft="@drawable/back"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_below="@id/imei"
+        android:layout_toRightOf="@id/btn_Update"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/v_profile"
+        android:title="View Profile"
+        />
+    <item
+        android:id="@+id/update_admin"
+        android:title="Update"
+        />
+    <item
+        android:id="@+id/delete_admin"
+        android:title="Delete"
+        />
+
+</menu>

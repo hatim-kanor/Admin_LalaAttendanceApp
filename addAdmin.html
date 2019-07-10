@@ -1,0 +1,29 @@
+<?php
+require_once 'connection.php';
+
+ $sql = "SELECT DISTINCT(f_id),f_name,f_stream,f_email,f_mobile FROM faculty  ";
+ 
+
+    $response = mysqli_query($conn, $sql);
+
+    $result = array();
+    $result['faculty'] = array();
+       
+        while($row = mysqli_fetch_assoc($response)){
+
+            $index['name'] = $row['f_name'];
+            $index['email'] = $row['f_email'];
+            $index['mobile'] = $row['f_mobile'];
+            $index['stream'] = $row['f_stream'];
+            $index['id'] = $row['f_id'];
+            array_push($result["faculty"], $index);
+
+            $result['success'] = "1";
+            echo json_encode($result);
+
+           
+        }
+     mysqli_close($conn);
+
+?>
+

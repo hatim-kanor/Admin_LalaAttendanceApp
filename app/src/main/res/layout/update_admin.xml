@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UpdateAdmin">
+
+    <RelativeLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/ua_fName"
+        android:layout_margin="10dp"
+        android:text="First Name"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/ua_Mobile"
+        android:layout_below="@id/ua_fName"
+        android:text="Mobile"
+        android:inputType="number"
+        android:maxLength="10"
+        android:hint="Mobile Number"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+   <EditText
+       android:id="@+id/ua_Email"
+       android:layout_below="@id/ua_Mobile"
+       android:hint="Email"
+       android:textColor="@android:color/black"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/ua_Imei"
+        android:layout_below="@id/ua_Email"
+        android:hint="IMEI NUMBER"
+        android:inputType="number"
+        android:maxLength="15"
+        android:text="IMEI NUMBER"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <ProgressBar
+            android:id="@+id/pb"
+            android:layout_below="@id/ua_Imei"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/ua_BtnUpdate"
+        android:layout_below="@id/ua_Imei"
+        android:text="Update"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_btn_admin"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/ua_BtnClose"
+        android:text="Go Back"
+        android:layout_centerHorizontal="true"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/back"
+        android:layout_below="@id/ua_BtnUpdate"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

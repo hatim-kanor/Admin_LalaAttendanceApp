@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="role">
+        <item> </item>
+        <item>Co-ordinator</item>
+        <item>Faculty</item>
+        <item>Visiting</item>
+    </string-array>
+
+</resources>

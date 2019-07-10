@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/holo_green_light"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddStaff">
+
+    <RelativeLayout
+        android:padding="13sp"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_fname"
+            android:textSize="20dp"
+            android:text="Enter Staff Name"
+            android:minLines="1"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_fname"
+            android:hint="Enter Name"
+            android:maxLines="1"
+            android:textSize="15dp"
+            android:layout_below="@id/tv_fname"
+            android:ems="10"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_lname"
+            android:layout_below="@id/tv_fname"
+            android:layout_toRightOf="@id/et_fname"
+            android:hint="Enter Surname"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_below="@id/et_fname"
+            android:text="Mobile Number"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:textSize="15dp"
+            android:hint="Mobile"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/tv_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_below="@id/et_mobile"
+            android:text="Email ID"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:textSize="15dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <GridLayout
+            android:id="@+id/gridView"
+            android:layout_below="@id/et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_year"
+                android:text="Select Year"
+                android:textSize="17dp"
+                android:layout_column="1"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_stream"
+                android:textColor="@android:color/black"
+                android:text="Stream"
+                android:layout_column="2"
+                android:layout_marginLeft="10dp"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_role"
+                android:textColor="@android:color/black"
+                android:text="Role"
+                android:layout_column="3"
+                android:layout_marginLeft="10dp"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/sp_year"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/sp_stream"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:layout_toRightOf="@id/sp_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/sp_role"
+                android:layout_toRightOf="@id/sp_stream"
+                android:layout_column="3"
+                android:layout_row="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/Btn_Add"
+            android:text="Add Staff"
+            android:layout_marginTop="40sp"
+            android:background="@drawable/bg_shape"
+            android:layout_below="@id/gridView"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>
