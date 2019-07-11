@@ -26,6 +26,15 @@ public class AdminHome extends AppCompatActivity {
         btnOnline = findViewById(R.id.btn_google);
         btnStaff = findViewById(R.id.btn_staff);
 
+        btnStream.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent stream = new Intent(AdminHome.this,AddSubject.class);
+                startActivity(stream);
+                finish();
+            }
+        });
+
         tv_viewprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

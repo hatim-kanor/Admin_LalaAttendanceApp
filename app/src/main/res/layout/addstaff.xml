@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddStaff">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rl"
+        android:layout_margin="15dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvStaffName"
+            android:text="Enter Staff Name"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/Fname"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tvStaffName"
+            android:textColor="@android:color/black"
+            android:hint="First Name"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvStaffSurname"
+            android:text="Enter Staff Surname"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:layout_below="@id/Fname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/Lname"
+            android:layout_below="@id/tvStaffSurname"
+            android:hint="Last Name"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvEmailID"
+            android:textSize="18sp"
+            android:text="Email ID"
+            android:layout_below="@id/Lname"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/EmailID"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/tvEmailID"
+            android:hint="Email ID"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvMobile"
+            android:text="Mobile Number"
+            android:layout_below="@id/EmailID"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/MobileNumber"
+            android:hint="Mobile Number"
+            android:layout_below="@id/tvMobile"
+            android:textColor="@android:color/black"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <GridLayout
+            android:id="@+id/gv"
+            android:layout_below="@id/MobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Select Year"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_column="1"
+                />
+            <TextView
+                android:id="@+id/tvStream"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Stream"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_column="2"
+                />
+            <TextView
+                android:id="@+id/tvRole"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Desig"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_column="3"
+                />
+
+            <RadioGroup
+                android:id="@+id/rg_Year"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_FY"
+                    android:text="FY"
+                    android:onClick="onYearSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_SY"
+                    android:text="SY"
+                    android:onClick="onYearSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_TY"
+                    android:text="TY"
+                    android:onClick="onYearSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/sp_stream"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:layout_toRightOf="@id/rg_Year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:id="@+id/rg_role"
+                android:layout_row="1"
+                android:layout_column="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_Coordinator"
+                    android:text="Co-ordinator"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_Faculty"
+                    android:text="Faculty"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_Visiting"
+                    android:text="Visiting"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:textColor="@android:color/black"
+            android:background="@drawable/bg_shape"
+            android:text="Add"
+            android:layout_below="@id/gv"
+            android:layout_marginTop="15dp"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
