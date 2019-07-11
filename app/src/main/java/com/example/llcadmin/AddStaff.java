@@ -1,5 +1,6 @@
 package com.example.llcadmin;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -10,18 +11,21 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddStaff extends AppCompatActivity {
+public class AddStaff extends AppCompatActivity  {
 
     Spinner sp_year, sp_stream, sp_role;
-    String r_year, r_stream, r_role, fname, lname, email, mobile;
+    String r_year, r_stream, r_role, fname, lname, email, mobile,result,role;
     EditText et_fname, et_lname, et_email, et_mobile;
+    RadioButton rbYear,rbRole,rbYear_1,rbYear_2,rbYear_3,rbRole_1,rbRole_2,rbRole_3;
     Button btn_Add;
+    ArrayAdapter<AddStaff_Class> arrayAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,48 +36,45 @@ public class AddStaff extends AppCompatActivity {
         actionBar.setTitle("Add Staff");
 
 
-        sp_year = (Spinner) findViewById(R.id.sp_year);
-        sp_stream = (Spinner) findViewById(R.id.sp_stream);
-        sp_role = (Spinner) findViewById(R.id.sp_role);
+
         btn_Add = (Button) findViewById(R.id.Btn_Add);
         et_email = (EditText) findViewById(R.id.et_fname);
         et_fname = (EditText) findViewById(R.id.fname);
         et_lname = (EditText) findViewById(R.id.lname);
         et_mobile = (EditText) findViewById(R.id.et_mobile);
+        sp_stream = (Spinner)findViewById(R.id.sp_stream);
+        rbYear_1 = (RadioButton)findViewById(R.id.rb_FY);
+        rbYear_2 = (RadioButton)findViewById(R.id.rb_SY);
+        rbYear_3 = (RadioButton)findViewById(R.id.rb_TY);
+        rbRole_1 = (RadioButton)findViewById(R.id.rb_Coordinator);
+        rbRole_2 = (RadioButton)findViewById(R.id.rb_Faculty);
+        rbRole_3 = (RadioButton)findViewById(R.id.rb_Visiting);
+
+        List<AddStaff_Class> StaffStream = new ArrayList<>();
+        AddStaff_Class class_blank = new AddStaff_Class(" ");
+        StaffStream.add(class_blank);
+        AddStaff_Class class_bms = new AddStaff_Class("BMS");
+        StaffStream.add(class_bms);
+        AddStaff_Class class_bmm = new AddStaff_Class("BMM");
+        StaffStream.add(class_bmm);
+        AddStaff_Class class_bbi = new AddStaff_Class("BBI");
+        StaffStream.add(class_bbi);
+        AddStaff_Class class_baf = new AddStaff_Class("BAF");
+        StaffStream.add(class_baf);
+        AddStaff_Class class_bscit = new AddStaff_Class("BSCIT");
+        StaffStream.add(class_bscit);
+        AddStaff_Class class_bfm = new AddStaff_Class("BFM");
+        StaffStream.add(class_bfm);
 
 
-        List<String> dd_year = new ArrayList<String>();
-        dd_year.add(" ");
-        dd_year.add("FY");
-        dd_year.add("SY");
-        dd_year.add("TY");
 
-        List<String> dd_stream = new ArrayList<String>();
-        dd_stream.add(" ");
-        dd_stream.add("BMS");
-        dd_stream.add("BMM");
-        dd_stream.add("BBI");
-        dd_stream.add("BAF");
-        dd_stream.add("BSCIT");
-        dd_stream.add("BFM");
 
-        List<String> dd_role = new ArrayList<String>();
-        dd_role.add(" ");
-        dd_role.add("Co-ordinator");
-        dd_role.add("Regular");
-        dd_role.add("Visiting");
+        arrayAdapter = new ArrayAdapter<AddStaff_Class>(this,android.R.layout.simple_spinner_item,StaffStream);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_stream.setAdapter(arrayAdapter);
 
-        ArrayAdapter<String> arrayAdapter_year = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dd_year);
-        arrayAdapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_year.setAdapter(arrayAdapter_year);
 
-        ArrayAdapter<String> arrayAdapter_stream = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dd_stream);
-        arrayAdapter_stream.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_stream.setAdapter(arrayAdapter_stream);
 
-        ArrayAdapter<String> arrayAdapter_role = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dd_role);
-        arrayAdapter_role.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_role.setAdapter(arrayAdapter_role);
 
         btn_Add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,17 +83,113 @@ public class AddStaff extends AppCompatActivity {
                 lname = et_lname.getText().toString();
                 mobile = et_mobile.getText().toString();
                 email = et_email.getText().toString();
-                r_year = sp_year.getSelectedItem().toString();
-                r_stream = sp_year.getSelectedItem().toString();
-                r_role = sp_year.getSelectedItem().toString();
 
-                Toast.makeText(AddStaff.this, sp_year.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+
+                AddStaff_Class addStaff_class = (AddStaff_Class)sp_stream.getSelectedItem();
+
+                r_stream = addStaff_class.getStream();
+                Toast.makeText(AddStaff.this, r_stream, Toast.LENGTH_SHORT).show();
+
+
+
+
+
 
             }
         });
 
 
+
+
+
     }
+
+    public void onYearSelected(View v)
+    {
+        boolean checkedYear = ((RadioButton) v).isChecked();
+        switch(v.getId())
+        {
+            case R.id.rb_FY:
+                if(checkedYear) {
+                    rbYear_1.setTypeface(null, Typeface.BOLD_ITALIC);
+                    rbYear_2.setTypeface(null, Typeface.NORMAL);
+                    rbYear_3.setTypeface(null, Typeface.NORMAL);
+                    result = "FY";
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            case R.id.rb_SY:
+                if(checkedYear) {
+                    rbYear_1.setTypeface(null, Typeface.NORMAL);
+                    rbYear_2.setTypeface(null, Typeface.BOLD_ITALIC);
+                    rbYear_3.setTypeface(null, Typeface.NORMAL);
+                    result = "SY";
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            case R.id.rb_TY:
+                if(checkedYear) {
+                    rbYear_1.setTypeface(null, Typeface.NORMAL);
+                    rbYear_2.setTypeface(null, Typeface.NORMAL);
+                    rbYear_3.setTypeface(null, Typeface.BOLD_ITALIC);
+                    result = "TY";
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            default:
+                rbYear_1.setTypeface(null, Typeface.NORMAL);
+                rbYear_2.setTypeface(null,Typeface.NORMAL);
+                rbYear_3.setTypeface(null,Typeface.NORMAL);
+                result = "NULL";
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+    }
+    public void onRoleSelected(View vv)
+    {
+
+        boolean checkedRole = ((RadioButton) vv).isChecked();
+        switch(vv.getId())
+        {
+            case R.id.rb_Coordinator:
+                if(checkedRole) {
+                    rbRole_1.setTypeface(null, Typeface.BOLD_ITALIC);
+                    rbRole_2.setTypeface(null, Typeface.NORMAL);
+                    rbRole_3.setTypeface(null, Typeface.NORMAL);
+                    role = "Co-ordinator";
+                    Toast.makeText(this, role, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            case R.id.rb_Faculty:
+                if(checkedRole) {
+                    rbRole_1.setTypeface(null, Typeface.NORMAL);
+                    rbRole_2.setTypeface(null, Typeface.BOLD_ITALIC);
+                    rbRole_3.setTypeface(null, Typeface.NORMAL);
+                    role = "Faculty";
+                    Toast.makeText(this, role, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            case R.id.rb_Visiting:
+                if(checkedRole) {
+                    rbRole_1.setTypeface(null, Typeface.NORMAL);
+                    rbRole_2.setTypeface(null, Typeface.NORMAL);
+                    rbRole_3.setTypeface(null, Typeface.BOLD_ITALIC);
+                    role = "Visiting";
+                    Toast.makeText(this, role, Toast.LENGTH_SHORT).show();
+                    break;
+                }
+            default:
+                rbRole_1.setTypeface(null, Typeface.BOLD_ITALIC);
+                rbRole_2.setTypeface(null, Typeface.NORMAL);
+                rbRole_3.setTypeface(null, Typeface.NORMAL);
+                role = "null";
+                Toast.makeText(this, role, Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+    }
+
 
 }
 

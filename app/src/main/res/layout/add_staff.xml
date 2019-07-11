@@ -117,28 +117,65 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <Spinner
-                android:id="@+id/sp_year"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+          <RadioGroup
+              android:id="@+id/rg_Year"
+              android:layout_row="1"
+              android:layout_column="1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+              <RadioButton
+                  android:id="@+id/rb_FY"
+                  android:text="FY"
+                  android:onClick="onYearSelected"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <RadioButton
+                  android:id="@+id/rb_SY"
+                  android:text="SY"
+                  android:onClick="onYearSelected"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <RadioButton
+                  android:id="@+id/rb_TY"
+                  android:text="TY"
+                  android:onClick="onYearSelected"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+          </RadioGroup>
 
             <Spinner
                 android:id="@+id/sp_stream"
                 android:layout_column="2"
                 android:layout_row="1"
-                android:layout_toRightOf="@id/sp_year"
+                android:layout_toRightOf="@id/rg_Year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <Spinner
-                android:id="@+id/sp_role"
-                android:layout_toRightOf="@id/sp_stream"
-                android:layout_column="3"
+            <RadioGroup
+                android:id="@+id/rg_role"
                 android:layout_row="1"
+                android:layout_column="3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_Coordinator"
+                    android:text="Co-ordinator"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_Faculty"
+                    android:text="Faculty"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_Visiting"
+                    android:text="Visiting"
+                    android:onClick="onRoleSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
 
 
 
