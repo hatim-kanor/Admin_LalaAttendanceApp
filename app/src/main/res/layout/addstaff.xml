@@ -172,15 +172,16 @@
             </RadioGroup>
 
 
-
         </GridLayout>
+
+
 
         <Button
             android:id="@+id/btnAdd"
             android:textColor="@android:color/black"
             android:background="@drawable/bg_shape"
             android:text="Add"
-            android:layout_below="@id/gv"
+            android:layout_below="@id/tv_GetSubject"
             android:layout_marginTop="15dp"
             android:textSize="15dp"
             android:layout_width="wrap_content"

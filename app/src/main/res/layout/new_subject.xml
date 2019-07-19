@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    tools:context=".NewSubject">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Header"
+            android:text="Add Subject"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <GridLayout
+            android:layout_below="@id/Header"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/select_year"
+                android:text="Select Year"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_below="@id/Header"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_row="2"
+                android:layout_column="1"
+                >
+                <RadioButton
+                    android:id="@+id/rbFY"
+                    android:text="FY"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:onClick="onYear"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rbSY"
+                    android:text="SY"
+                    android:onClick="onYear"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rbTY"
+                    android:text="TY"
+                    android:onClick="onYear"
+                    android:textColor="@android:color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/select_stream"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:text="Select Stream"
+                android:layout_marginLeft="15dp"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/spinner_stream"
+                android:layout_width="wrap_content"
+                android:layout_row="2"
+                android:layout_gravity="center"
+                android:layout_column="2"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/select_stream"
+                />
+            <TextView
+                android:id="@+id/getData"
+                android:text="Get Data"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/select_subject"
+                android:text="Select Subject"
+                android:layout_marginTop="30dp"
+                android:layout_row="4"
+                android:textSize="17dp"
+                android:textColor="@android:color/black"
+                android:layout_column="1"
+                />
+            <Spinner
+                android:id="@+id/spinner_subject"
+                android:layout_row="5"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/select_div"
+                android:text="Select Division"
+                android:layout_row="4"
+                android:textSize="17dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="30dp"
+                android:layout_column="2"
+                />
+            <Spinner
+                android:id="@+id/spinner_div"
+                android:layout_row="5"
+                android:layout_column="2"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/getDiv"
+                android:text="Get Div"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                />
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/checkStatus"
+            android:textSize="20dp"
+            android:text="Check Status"
+            android:layout_below="@id/gl"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvLink"
+            android:text="Enter Google Form Link"
+            android:layout_below="@id/checkStatus"
+            android:textColor="@android:color/black"
+            android:textSize="17dp"
+            android:padding="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/GoogleFormLink"
+            android:layout_below="@id/tvLink"
+            android:hint="Enter Google Form Link"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tvSheet"
+            android:text="Enter Google Sheet Link"
+            android:layout_below="@id/GoogleFormLink"
+            android:textColor="@android:color/black"
+            android:textSize="17dp"
+            android:padding="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/GoogleSheetLink"
+            android:layout_below="@id/tvSheet"
+            android:hint="Enter Google Sheet Link"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_below="@id/GoogleSheetLink"
+            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
+            android:text="Submit"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>

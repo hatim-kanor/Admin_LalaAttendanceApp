@@ -1,6 +1,7 @@
 package com.example.llcadmin;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,16 +18,29 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-import static android.view.View.GONE;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class AddStaff extends AppCompatActivity {
 
-    Spinner sp_year, sp_stream, sp_role;
+    Spinner sp_year, sp_stream, sp_role,sp_subject,sp_div;
     String r_year, r_stream, r_role, fname, lname, email, mobile, result, role, role_p, v1;
     EditText Fname, Lname, Email, Mobile;
     RadioButton rbYear, rbRole, rbYear_1, rbYear_2, rbYear_3, rbRole_1, rbRole_2, rbRole_3;
@@ -34,6 +48,10 @@ public class AddStaff extends AppCompatActivity {
     ArrayAdapter<AddStaff_Class> arrayAdapter;
     boolean checkedYear, checkedRole;
     RadioGroup r1, r2;
+    private static String URL = "https://llc-attendance.000webhostapp.com/addStaff.php";
+
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +76,9 @@ public class AddStaff extends AppCompatActivity {
         rbRole_3 = (RadioButton) findViewById(R.id.rb_Visiting);
         r1 = (RadioGroup) findViewById(R.id.rg_Year);
         r2 = (RadioGroup) findViewById(R.id.rg_role);
+
+
+
 
         List<AddStaff_Class> StaffStream = new ArrayList<>();
 
@@ -121,6 +142,9 @@ public class AddStaff extends AppCompatActivity {
 
             }
         });
+
+
+
 
 
     }
@@ -233,12 +257,89 @@ public class AddStaff extends AppCompatActivity {
         negativeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AddStaff.this, "Yes clicked", Toast.LENGTH_SHORT).show();
+                addStaff();
 
             }
         });
 
 
     }
+
+    private void addStaff() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            if(jsonObject.names().get(0).equals("success"))
+                            {
+                                Toast t_success = Toast.makeText(AddStaff.this,"Staff Added Sucessfully",Toast.LENGTH_LONG);
+                                t_success.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                                t_success.show();
+                                Intent newIntent  = new Intent(AddStaff.this,addSubject_Staff.class);
+                                newIntent.putExtra("fname",fname);
+                                newIntent.putExtra("lname",lname);
+                                newIntent.putExtra("email",email);
+                                newIntent.putExtra("mobile",mobile);
+                                newIntent.putExtra("year",result);
+                                newIntent.putExtra("stream",r_stream);
+                                newIntent.putExtra("role",role);
+                                startActivity(newIntent);
+                                finish();
+
+
+
+                            }
+                            else if(jsonObject.names().get(0).equals("fail"))
+                            {
+                                Toast t_fail = Toast.makeText(AddStaff.this, "Failed to add staff\nStaff Already Assigned for the Year/Stream", Toast.LENGTH_LONG);
+                                t_fail.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                                t_fail.show();
+                            }
+                            else if(jsonObject.names().get(0).equals("error"))
+                            {
+                                Toast t_error = Toast.makeText(AddStaff.this, "Add Staff Failed \nTry After sometime", Toast.LENGTH_LONG);
+                                t_error.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                                t_error.show();
+                            }
+
+                        }catch(Exception e)
+                        {
+                            Toast.makeText(AddStaff.this, "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(AddStaff.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                params.put("fname",fname);
+                params.put("lname",lname);
+                params.put("email",email);
+                params.put("mobile",mobile);
+                params.put("year",result);
+                params.put("stream",r_stream);
+                params.put("role",role);
+                params.put("role_p",role_p);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+
+    }
+
 
 }

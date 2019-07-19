@@ -33,7 +33,8 @@
         <activity android:name=".AddStaff" ></activity>
         <activity android:name=".Profile"/>
         <activity android:name=".Staff_Home"/>
-        <activity android:name=".AddSubject" />
+        <activity android:name=".addSubject_Staff" />
+        <activity android:name=".NewSubject" />
     </application>
 
 </manifest>

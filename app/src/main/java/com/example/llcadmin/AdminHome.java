@@ -29,9 +29,7 @@ public class AdminHome extends AppCompatActivity {
         btnStream.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent stream = new Intent(AdminHome.this,AddSubject.class);
-                startActivity(stream);
-                finish();
+
             }
         });
 
@@ -55,8 +53,17 @@ public class AdminHome extends AppCompatActivity {
         btnStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent staff = new Intent(AdminHome.this,AddStaff.class);
+                Intent staff = new Intent(AdminHome.this,addSubject_Staff.class);
                 startActivity(staff);
+                finish();
+            }
+        });
+
+        btnOnline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent online = new Intent(AdminHome.this,NewSubject.class);
+                startActivity(online);
                 finish();
             }
         });
